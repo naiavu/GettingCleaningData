@@ -1,4 +1,4 @@
-  # Codebook for Getting and Cleaning Data Project
+# Codebook for Getting and Cleaning Data Project
 
 ### Original Description
 >Feature Selection 
