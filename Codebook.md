@@ -74,15 +74,15 @@ Since we now have the actual activity description in the dataset, the numeric ac
 
 ### Naming variables
 
-The following online guides were reviewed for the naming convention in this project: 
+The following online guides were reviewed to help make a decision on naming convention for this project: 
 
 http://www.r-bloggers.com/consistent-naming-conventions-in-r/
 
 https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml
 
-Since dot notation is confusing for users of many Object-Oriented programming languages (myself included) where dots are meaningful; and because underscores were not recommended, I chose lowerCamelCase as my style of naming convention in R.
+Since period separated variables are confusing for users of many programming languages where they may separate a property from an object; and because underscores were not recommended, the  lowerCamelCase was my choice of naming variables.
 
-The following modifications were done on variable names in this project:
+The following modifications were done on variable names of the original dataset to make them follow selected naming convention as well as be more understandable: 
 * prefix t was replaced by time
 * prefix f was replaced by frequency
 * Acc was replaced by Accelerometer
@@ -91,15 +91,18 @@ The following modifications were done on variable names in this project:
 * BodyBody was replaced by Body
 * mean was replaced by Mean 
 * std was replaced by STD
-* () were removed
+
+Also the round brackets () were removed from the variable names since they are often serve various purposes in most programming languages.
 
 ### Final Calculation and Output
 
-To calculate the requested average of each variable for each activity and each subject, the "aggregate" function was used with dot notation, which is very convinient way to exclude from the calculation variables on which the data was grouped (e.g. subject and activity)
+To calculate the requested average of each variable for each activity and each subject, the "aggregate" function was used with dot notation, which is very convenient way to exclude from the calculation variables by which the data was grouped (e.g. subject and activity)
 ```{r}
 tidyData <- aggregate(. ~subject + activity, rawDataSet, FUN = "mean")
 ```
-Then the final data was ordered by subject and activity and saved into text file as requested.
+Because there are 30 subjects and 6 activity types, and the mean was calculated for every combination of subject and activity, the final output file contains 180 observations and 68 variables as described above.
+
+At the end the final dataset was ordered by subject and activity and saved into text file as requested.
 
 
 
